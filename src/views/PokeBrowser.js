@@ -2,8 +2,9 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
 import React from "react";
-import axios from "axios";
+import { useState, useEffect } from 'react';
 import { css, jsx } from '@emotion/react';
+import Card from "../components/Card";
 
 // Styles
 const pageBrowserStyles = css`
@@ -19,7 +20,7 @@ background-size: 35rem;
 `
 
 const searchInputStyle = css`
-width: 50vh;
+width: 40vh;
 height: 2rem;
 padding-left:1rem;
 border: 1px solid #83A1DF;
@@ -27,7 +28,27 @@ border-radius: 0.5rem;
 outline: none;
 `
 
+const showPokeStyle = css`
+margin: 1.5rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
+
 export default function PokeBrowser() {
+
+  // State and Fetch to call API and set Pokémon info. 
+  const [pokes, setPokes] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+  }, [])
+
   return (
     <>
       <div css={pageBrowserStyles}>
@@ -38,6 +59,10 @@ export default function PokeBrowser() {
             css={searchInputStyle}
             autoComplete="off" />
         </form>
+      </div>
+
+      <div css={showPokeStyle}>
+        <Card />
       </div>
     </>
   )
