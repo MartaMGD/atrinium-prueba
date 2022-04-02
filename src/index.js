@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import PokeApp from './PokeApp';
 import './styles/styles.css';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
-    <PokeApp/>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <PokeApp />
+  </React.StrictMode>
 );
