@@ -1,0 +1,15 @@
+/** Global Styles configuration for webpage **/
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    background-color: $backgroundcolor;
+    font-family: 'Open Sans';
+}
