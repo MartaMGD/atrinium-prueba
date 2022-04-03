@@ -38,6 +38,21 @@ justify-content: center;
 align-items: center;
 `
 
+const loadingCardStyle = css`
+margin: 4.5rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 20rem;
+width: 20rem;
+`
+
+const loadingStyle = css`
+height: 10rem;
+width: 10rem;
+`
+
 export default function PokeBrowser() {
 
   // State and Fetch to call API and set Pokémon info. 
@@ -63,7 +78,12 @@ export default function PokeBrowser() {
 
   // Error catching
   if (isLoading) {
-    return <h1>Cargando</h1>
+    return <div css={loadingCardStyle}>
+      <img css={loadingStyle}
+        src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/029b8bd9-cb5a-41e4-9c7e-ee516face9bb/dayo3ow-7ac86c31-8b2b-4810-89f2-e6134caf1f2d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAyOWI4YmQ5LWNiNWEtNDFlNC05YzdlLWVlNTE2ZmFjZTliYlwvZGF5bzNvdy03YWM4NmMzMS04YjJiLTQ4MTAtODlmMi1lNjEzNGNhZjFmMmQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ooubhxjHp9PIMhVxvCFHziI6pxDAS8glXPWenUeomWs'
+        alt="Pokeball Loading" />
+        <h3>Loading...</h3>
+    </div>
   }
   if (isError) {
     return <h1>Ha ocurrido un error.</h1>
@@ -75,7 +95,7 @@ export default function PokeBrowser() {
         <form>
           <input
             type="text"
-            placeholder="Busca un Pokémon"
+            placeholder="Find a Pokémon!"
             css={searchInputStyle}
             autoComplete="off"
             onChange={event => { setfilterPoke(event.target.value) }} />

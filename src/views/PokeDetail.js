@@ -1,7 +1,20 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+/** @jsxFrag React.Fragment */
+import { css, jsx } from '@emotion/react';
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useParams } from 'react-router';
+import DetailCard from '../components/DetailCard';
+
+// Styles 
+const pokeDetailStyle = css`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
 
 export default function PokeDetail() {
   const [pokeDetail, setPokeDetail] = useState();
@@ -16,8 +29,19 @@ export default function PokeDetail() {
   }
 
   return (
-    <img
-      src={pokeDetail.sprites.back_default}
-      alt="Poke Info" />
+    <div css={pokeDetailStyle}>
+    <DetailCard
+    name={pokeDetail.name}
+    image={pokeDetail.sprites.front_default}
+    id={pokeDetail.id}
+    type={pokeDetail.types[0].type.name}
+    weight={pokeDetail.weight}
+    height={pokeDetail.height}
+    move1={pokeDetail.moves[0].move.name}
+    move2={pokeDetail.moves[1].move.name}
+    move3={pokeDetail.moves[2].move.name}
+    move4={pokeDetail.moves[3].move.name}
+    />
+    </div>
   )
 }
