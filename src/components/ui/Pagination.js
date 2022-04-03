@@ -26,16 +26,16 @@ cursor: pointer;
 }
 `
 
-export default function Pagination({ gotoNextPage, gotoPrevPage }) {
+export default function Pagination({ navigateNextPage, navigatePrevPage }) {
     return (
         <div css={paginationStyle}>
-            {gotoPrevPage && <button
+            {navigatePrevPage && <button
                 css={paginationButtonStyle}
-                onClick={gotoPrevPage}>Anterior</button>}
+                onClick={navigatePrevPage}>Anterior</button>}
 
-            {gotoNextPage && <button
+            {navigateNextPage && <button
                 css={paginationButtonStyle}
-                onClick={gotoNextPage}>Siguiente</button>}
+                onClick={navigateNextPage}>Siguiente</button>}
         </div>
     )
 }

@@ -2,6 +2,7 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
 import { css, jsx } from '@emotion/react';
+import { Link } from 'react-router-dom';
 import { capitalize } from '../helpers/capitalize';
 
 // Styles
@@ -61,16 +62,21 @@ background-color: white;
 cursor: pointer;
 `
 
-export default function Card({name}) {
+export default function Card({name, id}) {
+
   return (
     <div css={cardStyle}>
       <div css={pokeSpriteStyle}>
       </div>
       <div css={pokeballStyle}>
-        <div css={innerCircleStyle}></div>
+        <Link
+        to={`/pokemon/${id}`}>
+        <div css={innerCircleStyle}>
+        </div>
+        </Link>
       </div>
       <div css={pokeInfoStyle}>
-        <h2>{capitalize(name)}</h2>
+        <h2>#{id} {capitalize(name)}</h2>
       </div>
     </div>
   )

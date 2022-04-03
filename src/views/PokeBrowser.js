@@ -2,11 +2,12 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import axios from "axios";
 import Card from "../components/Card";
 import Pagination from "../components/ui/Pagination";
+import { useQuery } from "react-query";
 
 // Styles
 const pageBrowserStyles = css`
@@ -40,25 +41,32 @@ align-items: center;
 export default function PokeBrowser() {
 
   // State and Fetch to call API and set Pokémon info. 
+  // Pokemon Filter with state.
   const [filterPoke, setfilterPoke] = useState('');
-  const [pokeData, setPokeData] = useState([''])
   const [currentUrl, setCurrentUrl] = useState('https://pokeapi.co/api/v2/pokemon/?limit=15');
-  const [nextUrl, setNextUrl] = useState('')
-  const [prevUrl, setPrevUrl] = useState('')
 
-  useEffect(() => {
-    axios.get(currentUrl).then(res => {
-      setPokeData(res.data.results)
-      setNextUrl(res.data.next)
-      setPrevUrl(res.data.previous)
-    }).catch(err => console.log(err))
-  }, [currentUrl])
+  const { isLoading, isError, data, isPreviousData } = useQuery(['pokemon', currentUrl],
+    () => axios.get(currentUrl).then(res => res.data, { keepPreviousData: true }))
 
-  function gotoNextPage() {
-    setCurrentUrl(nextUrl)
+  function navigateNextPage() {
+    if (!isPreviousData && data.next) {
+      setCurrentUrl(data.next)
+      window.scroll(0, 0)
+    }
   }
-  function gotoPrevPage() {
-    setCurrentUrl(prevUrl)
+  function navigatePrevPage() {
+    if (data.previous) {
+      setCurrentUrl(data.previous)
+      window.scroll(0, 0)
+    }
+  }
+
+  // Error catching
+  if (isLoading) {
+    return <h1>Cargando</h1>
+  }
+  if (isError) {
+    return <h1>Ha ocurrido un error.</h1>
   }
 
   return (
@@ -75,20 +83,22 @@ export default function PokeBrowser() {
       </div>
 
       <div css={showPokeStyle}>
-        {pokeData.filter((p) => {
+        {data.results.filter((p) => {
           if (filterPoke === "") {
             return p
           } else if (p.name.toLowerCase().includes(filterPoke.toLowerCase().trim())) {
             return p
-          }
-        }).map((p, index) => (
-          <Card
-            key={index}
+          } return null;
+        }).map(p => {
+          const id = p.url.match(/\/(\d+)\//)[1];
+          return <Card
+            key={id}
+            id={id}
             name={p.name} />
-        ))}
+        })}
         <Pagination
-          gotoNextPage={nextUrl ? gotoNextPage : null}
-          gotoPrevPage={prevUrl ? gotoPrevPage : null}
+          navigateNextPage={data.next ? navigateNextPage : null}
+          navigatePrevPage={data.previous ? navigatePrevPage : null}
         />
       </div>
     </>

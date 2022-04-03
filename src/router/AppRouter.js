@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from '../components/ui/NavBar';
-import PokeBrowser from '../views/PokeBrowser';
+import PokeQuery from './PokeQuery';
+import PokeDetail from '../views/PokeDetail';
 
 export default function AppRouter() {
     return (
@@ -9,7 +10,8 @@ export default function AppRouter() {
             <BrowserRouter>
                 <NavBar />
                 <Routes>
-                    <Route path="/" element={<PokeBrowser />} />
+                    <Route path="/" element={<PokeQuery />} />
+                    <Route path="/pokemon/:pokemonId" element={<PokeDetail />} />
                 </Routes>
             </BrowserRouter>
         </>
