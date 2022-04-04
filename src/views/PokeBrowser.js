@@ -79,6 +79,16 @@ justify-content: center;
 align-items: center;
 height: 20rem;
 width: 20rem;
+
+// Tablet
+@media (min-width: 768px) {
+  margin: 16rem;
+  margin-bottom: 13rem;
+}
+// Desktop
+@media (min-width: 992px) {
+  margin-left: 50rem;
+  margin-bottom: 13rem;
 `
 
 const loadingStyle = css`

@@ -10,7 +10,7 @@ margin-top: 4rem;
 margin-bottom: 6rem;
 height: 38rem;
 width: 22rem;
-background-color: #F5D33F;
+background-color: #F5E067;
 box-shadow: 4px 3px 12px 1px rgba(0,0,0,0.8);
 border-radius: 1rem;
 display: flex;
