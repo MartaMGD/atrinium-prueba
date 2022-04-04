@@ -6,6 +6,8 @@ import { css, jsx } from '@emotion/react';
 // Styles
 const paginationStyle = css`
 width: 100%;
+height: 4rem;
+margin-top: 2rem;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -14,12 +16,12 @@ background-color: #415FF5;
 
 const paginationButtonStyle = css`
 margin: 0.5rem;
-height: 2rem;
+height: 2.5rem;
 width: 7.5rem;
 background-color: #F0C61E;
 font-weight: bold;
-border-radius: 0.5rem;
-border: 2px solid #0119F5;
+border-radius: 1.5rem;
+border: none;
 cursor: pointer;
 &:hover {
     background-color: #FFE11F;

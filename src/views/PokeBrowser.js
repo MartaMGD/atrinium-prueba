@@ -11,7 +11,6 @@ import { useQuery } from "react-query";
 
 // Styles
 const pageBrowserStyles = css`
-margin-bottom: 1rem;
 display: flex;
 align-items: center;
 height: 15rem;
@@ -20,6 +19,18 @@ justify-content: center;
 background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/26887395-78f4-441d-a6e0-cc877fa24b54/deejrt3-3c33eed3-d378-4f78-b8c6-fc6fa60575d9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI2ODg3Mzk1LTc4ZjQtNDQxZC1hNmUwLWNjODc3ZmEyNGI1NFwvZGVlanJ0My0zYzMzZWVkMy1kMzc4LTRmNzgtYjhjNi1mYzZmYTYwNTc1ZDkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.GLyG-NJ33bIHSVsd14MaodgIjhnEw-OvpmRtiyucEG0");
 background-position: center cover;
 background-size: 35rem;
+box-shadow: 2px 11px 19px -11px rgba(0,0,0,0.65);
+
+// Tablet
+@media (min-width: 768px) {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+// Desktop
+@media (min-width: 992px) {
+  margin-left: 12rem;
+  margin-right: 12rem;
+}
 `
 
 const searchInputStyle = css`
@@ -27,19 +38,41 @@ width: 16.5rem;
 height: 2.5rem;
 padding-left:1rem;
 border: 1px solid #83A1DF;
-border-radius: 1rem;
+border-radius: 1.5rem;
 outline: none;
+
+// Tablet
+@media (min-width: 768px) {
+  width: 35rem;
+}
+// Desktop
+@media (min-width: 992px) {
+  width: 45rem;
+}
 `
 
 const showPokeStyle = css`
 display: flex;
-flex-direction: column;
+flex-wrap: wrap;
 justify-content: center;
-align-items: center;
+background-color: #C7D3FA;
+padding-top: 2rem;
+box-shadow: 2px 11px 19px -11px rgba(0,0,0,0.65);
+
+// Tablet
+@media (min-width: 768px) {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+// Desktop
+@media (min-width: 992px) {
+  margin-left: 12rem;
+  margin-right: 12rem;
 `
 
 const loadingCardStyle = css`
 margin: 4.5rem;
+margin-bottom: 16rem;
 display: flex;
 flex-direction: column;
 justify-content: center;

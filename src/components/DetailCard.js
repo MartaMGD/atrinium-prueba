@@ -7,6 +7,7 @@ import { capitalize } from '../helpers/capitalize';
 // Styles 
 const detailCardStyle = css`
 margin-top: 4rem;
+margin-bottom: 6rem;
 height: 38rem;
 width: 22rem;
 background-color: #F5D33F;
@@ -15,7 +16,20 @@ border-radius: 1rem;
 display: flex;
 flex-direction: column;
 justify-content: center;
-align-items: center
+align-items: center;
+
+// Tablet
+@media (min-width: 768px) {
+  width: 30rem;
+}
+// Desktop
+@media (min-width: 992px) {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 `
 
 const pokemonSpritesStyle = css`
@@ -30,6 +44,12 @@ background-size: 30rem;
 display: flex;
 justify-content: center;
 align-items: center;
+
+// Desktop
+@media (min-width: 992px) {
+    background-size: 40rem;
+    height: 15rem;
+    width: 35rem;
 `
 
 const pokeSpriteRegularStyle = css`
@@ -37,6 +57,10 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 margin-top: 3rem;
+
+// Desktop
+@media (min-width: 992px) {
+margin-top: 2rem;
 `
 const weightHeightStyle = css`
 margin-bottom: 1rem;
@@ -51,12 +75,18 @@ margin-right: 1rem;
 const boxMoveStyle = css`
 height: 11rem;
 width: 18rem;
+margin-bottom: 3rem;
 background-color: white;
 border-radius: 1rem;
 box-shadow: 5px 5px 5px #0119F5;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+// Desktop
+@media (min-width: 992px) {
+    width: 35rem;
+    padding-bottom: 1rem;
 `
 
 const moveSpanStyle = css`
