@@ -2,11 +2,12 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
 import { css, jsx } from '@emotion/react';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import DetailCard from '../components/DetailCard';
+import { WatchedPokeContext } from '../context/WatchedPokeContext';
 
 // Styles 
 const pokeDetailStyle = css`
@@ -48,7 +49,16 @@ const detailTitleStyle = css`
 export default function PokeDetail() {
   const [pokeDetail, setPokeDetail] = useState();
   const params = useParams();
+  const context = useContext(WatchedPokeContext);
 
+  // To set watched Pokémon
+  useEffect(() => {
+    context.setWatchedPokeIds(previousWatchedPokeIds => [
+      ...previousWatchedPokeIds, params.pokemonId
+    ])
+  }, [])
+
+  // Fetches Pokémon by id
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${params.pokemonId}`).then(res => setPokeDetail(res.data));
   }, [])

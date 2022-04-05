@@ -4,6 +4,8 @@
 import { css, jsx } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import { capitalize } from '../helpers/capitalize';
+import { WatchedPokeContext } from '../context/WatchedPokeContext';
+import { useContext } from 'react';
 
 // Styles
 const cardStyle = css`
@@ -21,6 +23,7 @@ background-color: #FA5546;
 const pokeSpriteStyle = css`
 display: flex;
 align-items: center;
+justify-content: center;
 margin: 0.5rem;
 height: 6.5rem;
 width: 2rem;
@@ -62,17 +65,30 @@ background-color: white;
 cursor: pointer;
 `
 
-export default function Card({name, id}) {
+const eyeStyle = css`
+color: #F5E507;
+margin-left: 2rem;
+margin-bottom: 2rem;
+`
+
+export default function Card({ name, id }) {
+
+  const context = useContext(WatchedPokeContext);
+  const isWatched = context.watchedPokeIds.includes(id);
 
   return (
     <div css={cardStyle}>
       <div css={pokeSpriteStyle}>
+        {/* Checks if id is inside array and shows eye */}
+        {isWatched && <div css={eyeStyle}>
+          <i className="fa-solid fa-eye"></i>
+        </div>}
       </div>
       <div css={pokeballStyle}>
         <Link
-        to={`/pokemon/${id}`}>
-        <div css={innerCircleStyle}>
-        </div>
+          to={`/pokemon/${id}`}>
+          <div css={innerCircleStyle}>
+          </div>
         </Link>
       </div>
       <div css={pokeInfoStyle}>
