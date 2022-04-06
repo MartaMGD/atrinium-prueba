@@ -9,7 +9,7 @@ Front-End project using PokeAPI. You can visualize, filter and view the detail o
 
 ➟ npm install and npm start on client.
 
-➟ Gotta catch 'em all! ![ Alt text](http://pm1.narvii.com/6834/10ffedaee85950ef4e62e3dd74225c4d64172c8ev2_00.jpg)
+➟ Gotta catch 'em all! ![ Alt text](https://www.pngfind.com/pngs/m/255-2554477_pokeball-small-pokeball-cross-stitch-hd-png-download.png)
 
 ## Technologies :computer:
 ### Front-End :fireworks:
