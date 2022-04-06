@@ -10,6 +10,8 @@ Front-End project using PokeAPI. You can visualize, filter and view the detail o
 ➟ npm install and npm start on client.
 
 ➟ Gotta catch 'em all! 
+
+
 ![ Alt text](https://c.tenor.com/MMDa60lTwtIAAAAC/caught-pokemon.gif)
 
 ## Technologies :computer:
