@@ -5,7 +5,7 @@ Author: Marta González Duque
 Front-End project using PokeAPI. You can visualize, filter and view the detail of each Pokémon. 
 
 ### To launch PokéApp :rocket:
-➟ Get project from repository: https://github.com/MartaMGD/birdyview-client
+➟ Get project from repository: https://github.com/MartaMGD/atrinium-prueba
 
 ➟ npm install and npm start on client.
 
