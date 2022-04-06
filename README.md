@@ -9,7 +9,7 @@ Front-End project using PokeAPI. You can visualize, filter and view the detail o
 
 ➟ npm install and npm start on client.
 
-➟ Gotta catch 'em all!
+➟ Gotta catch 'em all! ![ Alt text](https://haotso.carrd.co/assets/images/image01.gif?v34939071545061.gif)
 
 ## Technologies :computer:
 ### Front-End :fireworks:
